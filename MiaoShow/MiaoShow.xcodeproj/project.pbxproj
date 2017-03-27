@@ -1,0 +1,706 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7881A064EBDC634FED1738BC /* libPods-MiaoShow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D958206F1FD8FB8194F60FB /* libPods-MiaoShow.a */; };
+		E5EA80381E88F88B00BD51F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EA80371E88F88B00BD51F4 /* main.m */; };
+		E5EA803B1E88F88B00BD51F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EA803A1E88F88B00BD51F4 /* AppDelegate.m */; };
+		E5EA80431E88F88B00BD51F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5EA80421E88F88B00BD51F4 /* Assets.xcassets */; };
+		E5EA80461E88F88B00BD51F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5EA80441E88F88B00BD51F4 /* LaunchScreen.storyboard */; };
+		E5EA80511E88F88B00BD51F4 /* MiaoShowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EA80501E88F88B00BD51F4 /* MiaoShowTests.m */; };
+		E5EA805C1E88F88B00BD51F4 /* MiaoShowUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EA805B1E88F88B00BD51F4 /* MiaoShowUITests.m */; };
+		E5EA80791E88FB4600BD51F4 /* danmu.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5EA80741E88FB4600BD51F4 /* danmu.plist */; };
+		E5EA807A1E88FB4600BD51F4 /* login_video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5EA80751E88FB4600BD51F4 /* login_video.mp4 */; };
+		E5EA807B1E88FB4600BD51F4 /* loginmovie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5EA80761E88FB4600BD51F4 /* loginmovie.mp4 */; };
+		E5EA807C1E88FB4600BD51F4 /* user.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5EA80781E88FB4600BD51F4 /* user.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5EA804D1E88F88B00BD51F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5EA802B1E88F88B00BD51F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5EA80321E88F88B00BD51F4;
+			remoteInfo = MiaoShow;
+		};
+		E5EA80581E88F88B00BD51F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5EA802B1E88F88B00BD51F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5EA80321E88F88B00BD51F4;
+			remoteInfo = MiaoShow;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1400D7C8BCEBFFB10E7E8680 /* Pods-MiaoShow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiaoShow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiaoShow/Pods-MiaoShow.debug.xcconfig"; sourceTree = "<group>"; };
+		338B20C36F66F7047252780C /* Pods-MiaoShow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiaoShow.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiaoShow/Pods-MiaoShow.release.xcconfig"; sourceTree = "<group>"; };
+		7D958206F1FD8FB8194F60FB /* libPods-MiaoShow.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiaoShow.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EA80331E88F88B00BD51F4 /* MiaoShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiaoShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EA80371E88F88B00BD51F4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E5EA80391E88F88B00BD51F4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E5EA803A1E88F88B00BD51F4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E5EA80421E88F88B00BD51F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E5EA80451E88F88B00BD51F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E5EA80471E88F88B00BD51F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5EA804C1E88F88B00BD51F4 /* MiaoShowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiaoShowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EA80501E88F88B00BD51F4 /* MiaoShowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiaoShowTests.m; sourceTree = "<group>"; };
+		E5EA80521E88F88B00BD51F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5EA80571E88F88B00BD51F4 /* MiaoShowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiaoShowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EA805B1E88F88B00BD51F4 /* MiaoShowUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiaoShowUITests.m; sourceTree = "<group>"; };
+		E5EA805D1E88F88B00BD51F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5EA80741E88FB4600BD51F4 /* danmu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = danmu.plist; sourceTree = "<group>"; };
+		E5EA80751E88FB4600BD51F4 /* login_video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = login_video.mp4; sourceTree = "<group>"; };
+		E5EA80761E88FB4600BD51F4 /* loginmovie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = loginmovie.mp4; sourceTree = "<group>"; };
+		E5EA80771E88FB4600BD51F4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E5EA80781E88FB4600BD51F4 /* user.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = user.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5EA80301E88F88B00BD51F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7881A064EBDC634FED1738BC /* libPods-MiaoShow.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5EA80491E88F88B00BD51F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5EA80541E88F88B00BD51F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDA48DDEB4EF4C6340A78E83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D958206F1FD8FB8194F60FB /* libPods-MiaoShow.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5EA802A1E88F88B00BD51F4 = {
+			isa = PBXGroup;
+			children = (
+				E5EA80351E88F88B00BD51F4 /* MiaoShow */,
+				E5EA804F1E88F88B00BD51F4 /* MiaoShowTests */,
+				E5EA805A1E88F88B00BD51F4 /* MiaoShowUITests */,
+				E5EA80341E88F88B00BD51F4 /* Products */,
+				EA54A829735C55AAAB52088B /* Pods */,
+				BDA48DDEB4EF4C6340A78E83 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E5EA80341E88F88B00BD51F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5EA80331E88F88B00BD51F4 /* MiaoShow.app */,
+				E5EA804C1E88F88B00BD51F4 /* MiaoShowTests.xctest */,
+				E5EA80571E88F88B00BD51F4 /* MiaoShowUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5EA80351E88F88B00BD51F4 /* MiaoShow */ = {
+			isa = PBXGroup;
+			children = (
+				E5EA80391E88F88B00BD51F4 /* AppDelegate.h */,
+				E5EA803A1E88F88B00BD51F4 /* AppDelegate.m */,
+				E5EA80691E88F9FE00BD51F4 /* Classes */,
+				E5EA80421E88F88B00BD51F4 /* Assets.xcassets */,
+				E5EA80441E88F88B00BD51F4 /* LaunchScreen.storyboard */,
+				E5EA80471E88F88B00BD51F4 /* Info.plist */,
+				E5EA80361E88F88B00BD51F4 /* Supporting Files */,
+			);
+			path = MiaoShow;
+			sourceTree = "<group>";
+		};
+		E5EA80361E88F88B00BD51F4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5EA80371E88F88B00BD51F4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E5EA804F1E88F88B00BD51F4 /* MiaoShowTests */ = {
+			isa = PBXGroup;
+			children = (
+				E5EA80501E88F88B00BD51F4 /* MiaoShowTests.m */,
+				E5EA80521E88F88B00BD51F4 /* Info.plist */,
+			);
+			path = MiaoShowTests;
+			sourceTree = "<group>";
+		};
+		E5EA805A1E88F88B00BD51F4 /* MiaoShowUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E5EA805B1E88F88B00BD51F4 /* MiaoShowUITests.m */,
+				E5EA805D1E88F88B00BD51F4 /* Info.plist */,
+			);
+			path = MiaoShowUITests;
+			sourceTree = "<group>";
+		};
+		E5EA80691E88F9FE00BD51F4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E5EA806A1E88FA1C00BD51F4 /* Frameworks */,
+				E5EA806B1E88FA3300BD51F4 /* Profile */,
+				E5EA806C1E88FA4500BD51F4 /* Network */,
+				E5EA806D1E88FA5400BD51F4 /* Other */,
+				E5EA806E1E88FACF00BD51F4 /* Home */,
+				E5EA806F1E88FADA00BD51F4 /* ShowTime */,
+				E5EA80701E88FAE900BD51F4 /* Main */,
+				E5EA80711E88FAF700BD51F4 /* Tools */,
+				E5EA80721E88FB0400BD51F4 /* Login */,
+				E5EA80731E88FB1000BD51F4 /* Resource */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E5EA806A1E88FA1C00BD51F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5EA806B1E88FA3300BD51F4 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E5EA806C1E88FA4500BD51F4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E5EA806D1E88FA5400BD51F4 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		E5EA806E1E88FACF00BD51F4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E5EA806F1E88FADA00BD51F4 /* ShowTime */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShowTime;
+			sourceTree = "<group>";
+		};
+		E5EA80701E88FAE900BD51F4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E5EA80711E88FAF700BD51F4 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		E5EA80721E88FB0400BD51F4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E5EA80731E88FB1000BD51F4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E5EA80741E88FB4600BD51F4 /* danmu.plist */,
+				E5EA80751E88FB4600BD51F4 /* login_video.mp4 */,
+				E5EA80761E88FB4600BD51F4 /* loginmovie.mp4 */,
+				E5EA80771E88FB4600BD51F4 /* PrefixHeader.pch */,
+				E5EA80781E88FB4600BD51F4 /* user.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		EA54A829735C55AAAB52088B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1400D7C8BCEBFFB10E7E8680 /* Pods-MiaoShow.debug.xcconfig */,
+				338B20C36F66F7047252780C /* Pods-MiaoShow.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5EA80321E88F88B00BD51F4 /* MiaoShow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5EA80601E88F88B00BD51F4 /* Build configuration list for PBXNativeTarget "MiaoShow" */;
+			buildPhases = (
+				52212068791718F4FDD9F473 /* [CP] Check Pods Manifest.lock */,
+				E5EA802F1E88F88B00BD51F4 /* Sources */,
+				E5EA80301E88F88B00BD51F4 /* Frameworks */,
+				E5EA80311E88F88B00BD51F4 /* Resources */,
+				04F13852CD09B7476C895D82 /* [CP] Embed Pods Frameworks */,
+				D36C275019D49D1660B3D217 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MiaoShow;
+			productName = MiaoShow;
+			productReference = E5EA80331E88F88B00BD51F4 /* MiaoShow.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E5EA804B1E88F88B00BD51F4 /* MiaoShowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5EA80631E88F88B00BD51F4 /* Build configuration list for PBXNativeTarget "MiaoShowTests" */;
+			buildPhases = (
+				E5EA80481E88F88B00BD51F4 /* Sources */,
+				E5EA80491E88F88B00BD51F4 /* Frameworks */,
+				E5EA804A1E88F88B00BD51F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5EA804E1E88F88B00BD51F4 /* PBXTargetDependency */,
+			);
+			name = MiaoShowTests;
+			productName = MiaoShowTests;
+			productReference = E5EA804C1E88F88B00BD51F4 /* MiaoShowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E5EA80561E88F88B00BD51F4 /* MiaoShowUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5EA80661E88F88B00BD51F4 /* Build configuration list for PBXNativeTarget "MiaoShowUITests" */;
+			buildPhases = (
+				E5EA80531E88F88B00BD51F4 /* Sources */,
+				E5EA80541E88F88B00BD51F4 /* Frameworks */,
+				E5EA80551E88F88B00BD51F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5EA80591E88F88B00BD51F4 /* PBXTargetDependency */,
+			);
+			name = MiaoShowUITests;
+			productName = MiaoShowUITests;
+			productReference = E5EA80571E88F88B00BD51F4 /* MiaoShowUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5EA802B1E88F88B00BD51F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "赵瑞生";
+				TargetAttributes = {
+					E5EA80321E88F88B00BD51F4 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+					E5EA804B1E88F88B00BD51F4 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E5EA80321E88F88B00BD51F4;
+					};
+					E5EA80561E88F88B00BD51F4 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E5EA80321E88F88B00BD51F4;
+					};
+				};
+			};
+			buildConfigurationList = E5EA802E1E88F88B00BD51F4 /* Build configuration list for PBXProject "MiaoShow" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E5EA802A1E88F88B00BD51F4;
+			productRefGroup = E5EA80341E88F88B00BD51F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5EA80321E88F88B00BD51F4 /* MiaoShow */,
+				E5EA804B1E88F88B00BD51F4 /* MiaoShowTests */,
+				E5EA80561E88F88B00BD51F4 /* MiaoShowUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5EA80311E88F88B00BD51F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5EA80461E88F88B00BD51F4 /* LaunchScreen.storyboard in Resources */,
+				E5EA807C1E88FB4600BD51F4 /* user.plist in Resources */,
+				E5EA807B1E88FB4600BD51F4 /* loginmovie.mp4 in Resources */,
+				E5EA807A1E88FB4600BD51F4 /* login_video.mp4 in Resources */,
+				E5EA80791E88FB4600BD51F4 /* danmu.plist in Resources */,
+				E5EA80431E88F88B00BD51F4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5EA804A1E88F88B00BD51F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5EA80551E88F88B00BD51F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04F13852CD09B7476C895D82 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiaoShow/Pods-MiaoShow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52212068791718F4FDD9F473 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D36C275019D49D1660B3D217 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiaoShow/Pods-MiaoShow-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5EA802F1E88F88B00BD51F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5EA803B1E88F88B00BD51F4 /* AppDelegate.m in Sources */,
+				E5EA80381E88F88B00BD51F4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5EA80481E88F88B00BD51F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5EA80511E88F88B00BD51F4 /* MiaoShowTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5EA80531E88F88B00BD51F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5EA805C1E88F88B00BD51F4 /* MiaoShowUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5EA804E1E88F88B00BD51F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5EA80321E88F88B00BD51F4 /* MiaoShow */;
+			targetProxy = E5EA804D1E88F88B00BD51F4 /* PBXContainerItemProxy */;
+		};
+		E5EA80591E88F88B00BD51F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5EA80321E88F88B00BD51F4 /* MiaoShow */;
+			targetProxy = E5EA80581E88F88B00BD51F4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E5EA80441E88F88B00BD51F4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5EA80451E88F88B00BD51F4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E5EA805E1E88F88B00BD51F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E5EA805F1E88F88B00BD51F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5EA80611E88F88B00BD51F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1400D7C8BCEBFFB10E7E8680 /* Pods-MiaoShow.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MiaoShow/Classes/Resource/PrefixHeader.pch";
+				INFOPLIST_FILE = MiaoShow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ZRS.MiaoShow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E5EA80621E88F88B00BD51F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 338B20C36F66F7047252780C /* Pods-MiaoShow.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MiaoShow/Classes/Resource/PrefixHeader.pch";
+				INFOPLIST_FILE = MiaoShow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ZRS.MiaoShow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E5EA80641E88F88B00BD51F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MiaoShowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ZRS.MiaoShowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiaoShow.app/MiaoShow";
+			};
+			name = Debug;
+		};
+		E5EA80651E88F88B00BD51F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MiaoShowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ZRS.MiaoShowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiaoShow.app/MiaoShow";
+			};
+			name = Release;
+		};
+		E5EA80671E88F88B00BD51F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MiaoShowUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ZRS.MiaoShowUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MiaoShow;
+			};
+			name = Debug;
+		};
+		E5EA80681E88F88B00BD51F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MiaoShowUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ZRS.MiaoShowUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MiaoShow;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5EA802E1E88F88B00BD51F4 /* Build configuration list for PBXProject "MiaoShow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5EA805E1E88F88B00BD51F4 /* Debug */,
+				E5EA805F1E88F88B00BD51F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5EA80601E88F88B00BD51F4 /* Build configuration list for PBXNativeTarget "MiaoShow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5EA80611E88F88B00BD51F4 /* Debug */,
+				E5EA80621E88F88B00BD51F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5EA80631E88F88B00BD51F4 /* Build configuration list for PBXNativeTarget "MiaoShowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5EA80641E88F88B00BD51F4 /* Debug */,
+				E5EA80651E88F88B00BD51F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5EA80661E88F88B00BD51F4 /* Build configuration list for PBXNativeTarget "MiaoShowUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5EA80671E88F88B00BD51F4 /* Debug */,
+				E5EA80681E88F88B00BD51F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5EA802B1E88F88B00BD51F4 /* Project object */;
+}
