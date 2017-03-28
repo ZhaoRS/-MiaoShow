@@ -18,6 +18,9 @@
 		E5EA807A1E88FB4600BD51F4 /* login_video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5EA80751E88FB4600BD51F4 /* login_video.mp4 */; };
 		E5EA807B1E88FB4600BD51F4 /* loginmovie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5EA80761E88FB4600BD51F4 /* loginmovie.mp4 */; };
 		E5EA807C1E88FB4600BD51F4 /* user.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5EA80781E88FB4600BD51F4 /* user.plist */; };
+		E5EA808E1E890D5700BD51F4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EA808D1E890D5700BD51F4 /* LoginViewController.m */; };
+		E5EA80911E890D6700BD51F4 /* ThirdLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EA80901E890D6700BD51F4 /* ThirdLoginView.m */; };
+		E5EA80971E8919AC00BD51F4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EA80961E8919AB00BD51F4 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,11 @@
 		E5EA80761E88FB4600BD51F4 /* loginmovie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = loginmovie.mp4; sourceTree = "<group>"; };
 		E5EA80771E88FB4600BD51F4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		E5EA80781E88FB4600BD51F4 /* user.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = user.plist; sourceTree = "<group>"; };
+		E5EA808C1E890D5700BD51F4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		E5EA808D1E890D5700BD51F4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		E5EA808F1E890D6700BD51F4 /* ThirdLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdLoginView.h; sourceTree = "<group>"; };
+		E5EA80901E890D6700BD51F4 /* ThirdLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdLoginView.m; sourceTree = "<group>"; };
+		E5EA80961E8919AB00BD51F4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5EA80971E8919AC00BD51F4 /* libz.tbd in Frameworks */,
 				7881A064EBDC634FED1738BC /* libPods-MiaoShow.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +99,7 @@
 		BDA48DDEB4EF4C6340A78E83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5EA80961E8919AB00BD51F4 /* libz.tbd */,
 				7D958206F1FD8FB8194F60FB /* libPods-MiaoShow.a */,
 			);
 			name = Frameworks;
@@ -233,6 +243,8 @@
 		E5EA80721E88FB0400BD51F4 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E5EA80881E890D1F00BD51F4 /* View */,
+				E5EA80871E890D1900BD51F4 /* Controller */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -247,6 +259,24 @@
 				E5EA80781E88FB4600BD51F4 /* user.plist */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		E5EA80871E890D1900BD51F4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5EA808C1E890D5700BD51F4 /* LoginViewController.h */,
+				E5EA808D1E890D5700BD51F4 /* LoginViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5EA80881E890D1F00BD51F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5EA808F1E890D6700BD51F4 /* ThirdLoginView.h */,
+				E5EA80901E890D6700BD51F4 /* ThirdLoginView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EA54A829735C55AAAB52088B /* Pods */ = {
@@ -447,6 +477,8 @@
 			files = (
 				E5EA803B1E88F88B00BD51F4 /* AppDelegate.m in Sources */,
 				E5EA80381E88F88B00BD51F4 /* main.m in Sources */,
+				E5EA80911E890D6700BD51F4 /* ThirdLoginView.m in Sources */,
+				E5EA808E1E890D5700BD51F4 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +621,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MiaoShow/Classes/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MiaoShow/Classes/Resource/PrefixHeader.pch";
 				INFOPLIST_FILE = MiaoShow/Info.plist;
@@ -596,6 +632,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZRS.MiaoShow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -605,6 +642,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MiaoShow/Classes/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MiaoShow/Classes/Resource/PrefixHeader.pch";
 				INFOPLIST_FILE = MiaoShow/Info.plist;
@@ -612,6 +653,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZRS.MiaoShow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
