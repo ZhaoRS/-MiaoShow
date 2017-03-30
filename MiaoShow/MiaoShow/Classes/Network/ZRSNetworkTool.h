@@ -17,7 +17,7 @@ typedef NS_ENUM(NSUInteger, NetworkStates) {
 };
 
 @interface ZRSNetworkTool : AFHTTPSessionManager
-- (instancetype) shareTool;
++ (instancetype) shareTool;
 
 //判断网络类型
 + (NetworkStates)getNetworkStates;

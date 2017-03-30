@@ -11,7 +11,7 @@
 @implementation ZRSNetworkTool
 
 static ZRSNetworkTool *_manager;
-- (instancetype)shareTool {
++ (instancetype)shareTool {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _manager = [ZRSNetworkTool manager];

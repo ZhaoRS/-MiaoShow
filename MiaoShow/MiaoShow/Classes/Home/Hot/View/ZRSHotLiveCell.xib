@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ZRSHotLiveCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="439"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IN0-eo-JH6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_head" translatesAutoresizingMaskIntoConstraints="NO" id="tob-NC-6tl">
+                                <rect key="frame" x="10" y="5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tob-NC-6tl" secondAttribute="height" multiplier="1:1" id="ZXW-Mz-yDI"/>
+                                    <constraint firstAttribute="width" constant="40" id="teW-Fw-1aL"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="直播名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQ8-6o-3gr">
+                                <rect key="frame" x="60" y="5" width="43" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girl_star1_40x19" translatesAutoresizingMaskIntoConstraints="NO" id="Pnd-lh-dTK">
+                                <rect key="frame" x="113" y="4" width="40" height="19"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiO-bm-dNN">
+                                <rect key="frame" x="60" y="33" width="143" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="上海市" image="home_location_8x8">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100人观看" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khg-kf-CJB">
+                                <rect key="frame" x="243" y="16.5" width="67" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="khg-kf-CJB" firstAttribute="centerY" secondItem="tob-NC-6tl" secondAttribute="centerY" id="4Ga-dm-ZnP"/>
+                            <constraint firstItem="KiO-bm-dNN" firstAttribute="leading" secondItem="BQ8-6o-3gr" secondAttribute="leading" id="6jI-KH-eBC"/>
+                            <constraint firstItem="Pnd-lh-dTK" firstAttribute="centerY" secondItem="BQ8-6o-3gr" secondAttribute="centerY" id="8c4-aq-oOG"/>
+                            <constraint firstAttribute="height" constant="55" id="HGM-Fn-Gvl"/>
+                            <constraint firstItem="BQ8-6o-3gr" firstAttribute="top" secondItem="tob-NC-6tl" secondAttribute="top" id="Ov8-kj-vYc"/>
+                            <constraint firstItem="BQ8-6o-3gr" firstAttribute="leading" secondItem="tob-NC-6tl" secondAttribute="trailing" constant="10" id="VVy-dg-VVa"/>
+                            <constraint firstItem="tob-NC-6tl" firstAttribute="top" secondItem="IN0-eo-JH6" secondAttribute="top" constant="5" id="WVK-0f-gHE"/>
+                            <constraint firstItem="Pnd-lh-dTK" firstAttribute="leading" secondItem="BQ8-6o-3gr" secondAttribute="trailing" constant="10" id="YnD-S1-pcF"/>
+                            <constraint firstItem="khg-kf-CJB" firstAttribute="leading" secondItem="KiO-bm-dNN" secondAttribute="trailing" constant="40" id="Zwh-Qk-HGM"/>
+                            <constraint firstItem="KiO-bm-dNN" firstAttribute="top" secondItem="Pnd-lh-dTK" secondAttribute="bottom" constant="10" id="a8b-7X-gr2"/>
+                            <constraint firstItem="tob-NC-6tl" firstAttribute="leading" secondItem="IN0-eo-JH6" secondAttribute="leading" constant="10" id="b40-ZC-Pgf"/>
+                            <constraint firstAttribute="trailing" secondItem="khg-kf-CJB" secondAttribute="trailing" constant="10" id="hP9-zV-1Fw"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AAv-av-vLp">
+                        <rect key="frame" x="0.0" y="55" width="320" height="374.5"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="home_live_43x22" translatesAutoresizingMaskIntoConstraints="NO" id="0OZ-FU-U2r">
+                        <rect key="frame" x="262" y="63" width="43" height="22"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="AAv-av-vLp" secondAttribute="trailing" id="3mW-9h-uB7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="0OZ-FU-U2r" secondAttribute="trailing" constant="10" id="9yb-VW-FUv"/>
+                    <constraint firstItem="IN0-eo-JH6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Az6-7u-tai"/>
+                    <constraint firstItem="AAv-av-vLp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="N5T-ht-d0L"/>
+                    <constraint firstItem="AAv-av-vLp" firstAttribute="top" secondItem="IN0-eo-JH6" secondAttribute="bottom" id="edl-sd-Me8"/>
+                    <constraint firstItem="0OZ-FU-U2r" firstAttribute="top" secondItem="IN0-eo-JH6" secondAttribute="bottom" constant="10" id="hsh-7p-kuj"/>
+                    <constraint firstItem="IN0-eo-JH6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="iqJ-HF-sdK"/>
+                    <constraint firstAttribute="bottom" secondItem="AAv-av-vLp" secondAttribute="bottom" constant="10" id="kHt-Vd-PM6"/>
+                    <constraint firstAttribute="trailing" secondItem="IN0-eo-JH6" secondAttribute="trailing" id="viD-wm-kbM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bgPicView" destination="AAv-av-vLp" id="yhj-Ub-6p1"/>
+                <outlet property="chaoyangLabel" destination="khg-kf-CJB" id="oKz-5e-xK4"/>
+                <outlet property="headImageView" destination="tob-NC-6tl" id="9H8-dN-fAG"/>
+                <outlet property="locationBtn" destination="KiO-bm-dNN" id="PeW-kZ-2mC"/>
+                <outlet property="nameLabel" destination="BQ8-6o-3gr" id="EgW-qK-aha"/>
+                <outlet property="startView" destination="Pnd-lh-dTK" id="zhE-Zf-7Tk"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="girl_star1_40x19" width="40" height="19"/>
+        <image name="home_live_43x22" width="43" height="22"/>
+        <image name="home_location_8x8" width="8" height="8"/>
+        <image name="placeholder_head" width="100" height="100"/>
+    </resources>
+</document>

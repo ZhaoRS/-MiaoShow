@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "ThirdLoginView.h"
+#import "MainViewController.h"
 
 @interface LoginViewController ()
 
@@ -15,7 +17,7 @@
 @property (nonatomic, strong) IJKFFMoviePlayerController *player;
 
 /**第三方登录*/
-
+@property (nonatomic, strong) ThirdLoginView *thirdView;
 /**快速通道*/
 @property (nonatomic, weak) UIButton *quickBtn;
 /**p封面图片*/
@@ -47,6 +49,19 @@
         
     }
     return _player;
+}
+
+- (ThirdLoginView *)thirdView {
+    if (!_thirdView) {
+        ThirdLoginView *third = [[ThirdLoginView alloc] initWithFrame:CGRectMake(0, 0, 400, 200)];
+        [third setClickLogin:^(LoginType type) {
+            [self loginSuccess];
+        }];
+        third.hidden = YES;
+        [self.view addSubview:third];
+        _thirdView = third;
+    }
+    return _thirdView;
 }
 - (UIButton *)quickBtn {
     if (!_quickBtn) {
@@ -109,6 +124,13 @@
         make.height.equalTo(@40);
     }];
     
+    [self.thirdView mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.right.equalTo(@0);
+        make.height.equalTo(@60);
+        make.bottom.equalTo(self.quickBtn.mas_top).offset(-40);
+    }];
+    
 }
 
 #pragma mark - private method
@@ -129,6 +151,7 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 //展示
                 self.quickBtn.hidden = NO;
+                self.thirdView.hidden = NO;
             });
             
             
@@ -143,13 +166,15 @@
 
 //登录成功
 - (void)loginSuccess {
-//    [self show]
+    [self showHint:@"登陆成功"];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self presentViewController:[] animated:<#(BOOL)#> completion:<#^(void)completion#>]
-        [self.player stop];
-        [self.player.view removeFromSuperview];
-        self.player = nil;
+        [self presentViewController:[MainViewController alloc] animated:NO completion:^{
+            [self.player stop];
+            [self.player.view removeFromSuperview];
+            self.player = nil;
+        }];
+        
     });
 }
 
