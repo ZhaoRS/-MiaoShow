@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZRSCarouselView.h"
 @class ZRSTopAD;
 
-@interface ZRSHomeADCell : UITableViewCell
+@interface ZRSHomeADCell : UITableViewCell <ZRSCarouselViewDelegate>
 /** 顶部AD数组 */
 @property (nonatomic, strong) NSArray *topADs;
 /** 点击图片的block */

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ZRSLiveItem;
 
 @interface ZRSHotLiveCell : UITableViewCell
 
+/** 直播*/
+@property (nonatomic, strong) ZRSLiveItem *live;
 @end

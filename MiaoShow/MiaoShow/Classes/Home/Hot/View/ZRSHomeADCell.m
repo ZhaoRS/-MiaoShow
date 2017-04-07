@@ -7,12 +7,35 @@
 //
 
 #import "ZRSHomeADCell.h"
+#import "ZRSTopAD.h"
 
 @implementation ZRSHomeADCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+}
+
+- (void)setTopADs:(NSArray *)topADs {
+    _topADs = topADs;
+    
+    NSMutableArray *imageUrls = [NSMutableArray array];
+    for (ZRSTopAD *topAD in topADs) {
+        [imageUrls addObject:topAD.imageUrl];
+    }
+    ZRSCarouselView *view = [ZRSCarouselView carouselViewWithImageArray:imageUrls describeArray:nil];
+    view.time = 2.0;
+    view.delegate = self;
+    view.changeMode = PageChangeModeFade;
+    view.frame = self.contentView.bounds;
+    [self.contentView addSubview:view];
+}
+
+#pragma mark - XRCarouselViewDelegate
+- (void)carouselView:(ZRSCarouselView *)carouselView clickImageAtIndex:(NSInteger)index{
+    if (self.imageClickBlock) {
+        self.imageClickBlock(self.topADs[index]);
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

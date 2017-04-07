@@ -8,8 +8,12 @@
 
 #import "ZRSHotViewController.h"
 #import "ZRSTopAD.h"
+#import "ZRSHomeADCell.h"
+#import "ZRSHotLiveCell.h"
 #import <MJRefresh.h>
 #import "ZRSLiveItem.h"
+#import "ZRSWebViewController.h"
+#import "ZRSRefreshGifHeader.h"
 
 @interface ZRSHotViewController ()
 /** 当前页 */
@@ -20,6 +24,9 @@
 @property (nonatomic, copy) NSArray *topADS;
 
 @end
+
+static NSString *reuseIdentifer = @"ZRSHotLiveCell";
+static NSString *ZReuseIdentifer = @"ZRSHomeADCell";
 
 @implementation ZRSHotViewController
 
@@ -33,7 +40,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setup];
+}
+
+- (void)setup {
     
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZRSHotLiveCell class]) bundle:nil] forCellReuseIdentifier:reuseIdentifer];
+    [self.tableView registerClass:[ZRSHomeADCell class] forCellReuseIdentifier:ZReuseIdentifer];
+    
+    self.currentPage = 1;
+    self.tableView.mj_header = [ZRSRefreshGifHeader headerWithRefreshingBlock:^{
+        self.lives = [NSMutableArray array];
+        self.currentPage = 1;
+        //取得顶部的广告
+        [self getTopAD];
+        [self getHotLiveList];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        self.currentPage ++;
+        [self getHotLiveList];
+    }];
+    
+    [self.tableView.mj_header beginRefreshing];
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 
@@ -95,58 +127,35 @@
     return 465;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    if (indexPath.row == 0) {
+        ZRSHomeADCell *cell = [tableView dequeueReusableCellWithIdentifier:ZReuseIdentifer];
+        if (self.topADS.count) {
+            cell.topADs = self.topADS;
+            
+            [cell setImageClickBlock:^(ZRSTopAD *topAD) {
+                if (topAD.link.length) {
+                    ZRSWebViewController *web = [[ZRSWebViewController alloc] initWithUrlStr:topAD.link];
+                    web.navigationItem.title = topAD.title;
+                    [self.navigationController pushViewController:web animated:YES];
+                }
+            }];
+        }
+        return cell;
+    }
     
+    ZRSHotLiveCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifer];
+    if (self.lives.count) {
+        ZRSLiveItem *live = self.lives[indexPath.row - 1];
+        cell.live = live;
+    }
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

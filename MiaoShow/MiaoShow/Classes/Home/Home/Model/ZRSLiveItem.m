@@ -10,7 +10,7 @@
 
 @implementation ZRSLiveItem
 - (UIImage *)starImage {
-    if (self.starImage) {
+    if (self.starlevel) {
         return [UIImage imageNamed:[NSString stringWithFormat:@"girl_star%ld_40x19", self.starlevel]];
     }
     return nil;

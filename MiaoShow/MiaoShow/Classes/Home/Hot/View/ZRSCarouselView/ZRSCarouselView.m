@@ -319,16 +319,141 @@
 #pragma mark 布局子控件
 - (void)layoutSubviews {
     [super layoutSubviews];
+    //有导航控制器的时候，会默认在scrollview上添加64的内边框 这里强制设置为0
+    _scrollView.contentInset = UIEdgeInsetsZero;
+    _scrollView.frame = self.bounds;
+    _describeLabel.frame = CGRectMake(0, self.height - DES_LABEL_H, self.width, DES_LABEL_H);
+    //重新计算pageController的位置
+    self.pagePosition = self.pagePosition;
+    [self setSecrollViewContentSize];
     
 }
+
+#pragma mark 图片点击事件
+- (void)imageClick {
+    if (self.imageClickBlock) {
+        self.imageClickBlock(self.currIndex);
+    } else if ([_delegate respondsToSelector:@selector(carouselView:clickImageAtIndex:)]) {
+        [_delegate carouselView:self clickImageAtIndex:self.currIndex];
+    }
+}
+
 
 #pragma mark 下载网络图片
 - (void)downloadImages:(int)index {
-    
+    NSString *key = _imageArray[index];
+    //从沙盒中取图片
+    NSString *path = [[[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"ZRSCarousel"] stringByAppendingPathComponent:[key lastPathComponent]];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    if (data) {
+        _images[index] = [UIImage imageWithData:data];
+        return;
+    }
+    //下载图片
+    NSBlockOperation *download = [NSBlockOperation blockOperationWithBlock:^{
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:key]];
+        if (!data) {
+            return ;
+        }
+        
+        UIImage *image = [UIImage imageWithData:data];
+        //取到data有可能不是图片
+        if (image) {
+            self.images[index] = image;
+            //如果下载的图片为当前显示的图片，直接到主线程给imageView赋值， 否则要等到下一轮才会显示
+            if (_currIndex == index) {
+                [_currImageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
+            }
+            [data writeToFile:path atomically:YES];
+        }
+        
+    }];
+    [self.queue addOperation:download];
 }
+
+#pragma mark 清除沙盒中的图片缓存
+- (void)clearDiskCache {
+    NSString *cache = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"ZRSCarousel"];
+    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:cache error:NULL];
+    for (NSString *fileName in contents) {
+        [[NSFileManager defaultManager]removeItemAtPath:[cache stringByAppendingPathComponent:fileName] error:nil];
+    }
+}
+
+#pragma mark 当图片滚动过半时就修改当前页码
+- (void)changeCurrentPageWithOffset:(CGFloat)offsetX {
+    if (offsetX < self.width * 1.5) {
+        NSInteger index = self.currIndex - 1;
+        if (index < 0) {
+            index = self.images.count - 1;
+        }
+        _pageControl.currentPage = index;
+    } else if (offsetX > self.width * 2.5) {
+        _pageControl.currentPage = (self.currIndex + 1) % self.images.count;
+    } else {
+        _pageControl.currentPage = self.currIndex;
+    }
+}
+
+#pragma mark- --------UIScrollViewDelegate--------
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (CGSizeEqualToSize(CGSizeZero, scrollView.contentSize)) {
+        return;
+    }
+    CGFloat offsetX = scrollView.contentOffset.x;
+    //滚动过程中改变pageControl的当前页码
+    [self changeCurrentPageWithOffset:offsetX];
+    
+    //向右滚动
+    if (offsetX < self.width * 2) {
+        if (_changeMode == PageChangeModeFade) {
+            self.currImageView.alpha = offsetX / self.width - 1;
+            self.otherImageView.alpha = 2 - offsetX / self.width;
+        } else {
+            self.otherImageView.frame = CGRectMake(self.width, 0, self.width, self.height);
+        }
+        
+        self.nextIndex = self.currIndex - 1;
+        if (self.nextIndex < 0) {
+            self.nextIndex = _images.count - 1;
+        }
+        if (offsetX <= self.width) {
+            [self changeToNext];
+        }
+    } else if (offsetX > self.width * 2) { //向左滚动
+        if (_changeMode == PageChangeModeFade) {
+            self.otherImageView.alpha = offsetX / self.width - 2;
+            self.currImageView.alpha = 3 - offsetX / self.width;
+        } else {
+            self.otherImageView.frame = CGRectMake(CGRectGetMaxX(_currImageView.frame), 0, self.width, self.height);
+        }
+        
+        self.nextIndex = (self.currIndex + 1) % _images.count;
+        if (offsetX >= self.width * 3) {
+            [self changeToNext];
+        }
+    }
+    self.otherImageView.image = self.images[self.nextIndex];
+}
+
 
 - (void)changeToNext {
-    
+    if (_changeMode == PageChangeModeFade) {
+        self.currImageView.alpha = 1;
+        self.otherImageView.alpha = 0;
+    }
+    //切换到下一张图片
+    self.currImageView.image = self.otherImageView.image;
+    self.scrollView.contentOffset = CGPointMake(self.width * 2, 0);
+    self.currIndex = self.nextIndex;
+    self.pageControl.currentPage = self.currIndex;
+    self.describeLabel.text = self.describeArray[self.currIndex];
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self stopTimer];
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self startTimer];
+}
 @end
