@@ -56,6 +56,12 @@
         make.width.equalTo(@Home_Seleted_Item_W);
     }];
     
+    [careBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(@(-DefaultMargin * 2));
+        make.centerY.equalTo(self);
+        make.width.equalTo(@Home_Seleted_Item_W);
+    }];
+    
     //强制更新一次
     [self layoutIfNeeded];
     //默认选中最热

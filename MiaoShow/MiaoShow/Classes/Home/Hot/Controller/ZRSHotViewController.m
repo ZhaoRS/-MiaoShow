@@ -121,7 +121,7 @@ static NSString *ZReuseIdentifer = @"ZRSHomeADCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath == 0) {
+    if (indexPath.row == 0) {
         return 100;
     }
     return 465;

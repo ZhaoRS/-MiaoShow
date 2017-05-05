@@ -9,6 +9,8 @@
 #import "HomeViewController.h"
 #import "ZRSSelectedView.h"
 #import "ZRSHotViewController.h"
+#import "ZRSNewStarViewController.h"
+#import "ZRSCareViewController.h"
 
 @interface HomeViewController () <UIScrollViewDelegate>
 /** 顶部选择视图 */
@@ -17,8 +19,9 @@
 @property (nonatomic, weak) UIScrollView *scrollView;
 /** 热播 */
 @property (nonatomic, weak) ZRSHotViewController *hotVc;
-
-
+/** 最新主播 */
+@property (nonatomic, weak) ZRSNewStarViewController *starVc;
+@property (nonatomic, weak) ZRSCareViewController *careVc;
 @end
 
 @implementation HomeViewController
@@ -42,7 +45,7 @@
     view.backgroundColor = [UIColor whiteColor];
     view.showsVerticalScrollIndicator = NO;
     view.showsHorizontalScrollIndicator = NO;
-    view.pagingEnabled = NO;
+    view.pagingEnabled = YES;
     view.delegate = self;
     view.bounces = NO;
     
@@ -56,6 +59,22 @@
     _hotVc = hot;
     
     
+    ZRSNewStarViewController *newStar = [[ZRSNewStarViewController alloc] init];
+    newStar.view.frame = [UIScreen mainScreen].bounds;
+    newStar.view.x = ScreenWidth;
+    newStar.view.height = height;
+    [self addChildViewController:newStar];
+    [view addSubview:newStar.view];
+    _starVc = newStar;
+    
+    ZRSCareViewController *careVc = [[ZRSCareViewController alloc] initWithNibName:@"ZRSCareViewController" bundle:nil];
+    careVc.view.frame = [UIScreen mainScreen].bounds;
+    careVc.view.x = ScreenWidth * 2;
+    careVc.view.height = height;
+    [self addChildViewController:careVc];
+    [view addSubview:careVc.view];
+    _careVc = careVc;
+    
     self.view = view;
     self.scrollView = view;
 }
@@ -63,13 +82,29 @@
 - (void)setupTopMenu {
     ZRSSelectedView *selectedView = [[ZRSSelectedView alloc] initWithFrame:self.navigationController.navigationBar.bounds];
     selectedView.x = 45;
-    self.selectedView.width = ScreenWidth - 45 * 2;
+    selectedView.width = ScreenWidth - 45 * 2;
     [selectedView setSelectedBlock:^(HomeType type) {
         [self.scrollView setContentOffset:CGPointMake(type * ScreenWidth, 0) animated:YES];
     }];
     [self.navigationController.navigationBar addSubview:selectedView];
     _selectedView = selectedView;
 }
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat page = scrollView.contentOffset.x / ScreenWidth;
+    CGFloat offsetX = scrollView.contentOffset.x / ScreenWidth * (self.selectedView.width * 0.5 - Home_Seleted_Item_W * 0.5 - 15);
+    self.selectedView.underLine.x = 15 + offsetX;
+    if (page == 1 ) {
+        self.selectedView.underLine.x = offsetX + 10;
+    }else if (page > 1){
+        self.selectedView.underLine.x = offsetX + 5;
+    }
+    self.selectedView.selectedType = (int)(page + 0.5);
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
