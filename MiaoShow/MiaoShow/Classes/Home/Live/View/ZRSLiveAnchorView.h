@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class ZRSLiveItem;
+@class ZRSUserItem;
+
 @interface ZRSLiveAnchorView : UIView
+
++ (instancetype)liveAnchorView;
+
+/** 主播 */
+@property(nonatomic, strong) ZRSUserItem *user;
+/** 直播 */
+@property(nonatomic, strong) ZRSLiveItem *live;
+/** 点击开关  */
+@property(nonatomic, copy)void (^clickDeviceShow)(bool selected);
 
 @end
