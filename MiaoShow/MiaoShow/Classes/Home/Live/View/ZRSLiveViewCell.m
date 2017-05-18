@@ -16,6 +16,7 @@
 #import <SDWebImageDownloader.h>
 #import <BarrageRenderer.h>
 #import "ZRSCatEarView.h"
+#import "ZRSLiveEndView.h"
 
 @interface ZRSLiveViewCell ()
 {
@@ -37,7 +38,7 @@
 /** 粒子动画 */
 @property(nonatomic, weak) CAEmitterLayer *emitterLayer;
 /** 直播结束的界面 */
-//@property (nonatomic, weak) ALinLiveEndView *endView;
+@property (nonatomic, weak) ZRSLiveEndView *endView;
 @end
 
 @implementation ZRSLiveViewCell
@@ -66,6 +67,16 @@
 
 - (void)exeute {
     
+}
+- (void)clickOther
+{
+    NSLog(@"相关的主播");
+}
+
+- (void)clickCatEar {
+    if (self.clickRelatedLive) {
+        self.clickRelatedLive();
+    }
 }
 
 - (void)initObserver {
@@ -125,13 +136,26 @@
 
 #pragma mark - 弹幕描述方法
 long _index = 0;
-///生成精灵描述 - 过程文字描述
-//- (BarrageDescriptor *)walkTextSpriteDescriptorWithDirection:(NSInteger)direction {
-//    BarrageDescriptor *descriptor = [[BarrageDescriptor alloc] init];
-//    descriptor.spriteName = NSStringFromClass([BarrageWalkTextSprite class]);
-//    
-//}
+//生成精灵描述 - 过程文字描述
+- (BarrageDescriptor *)walkTextSpriteDescriptorWithDirection:(NSInteger)direction {
+    BarrageDescriptor *descriptor = [[BarrageDescriptor alloc] init];
+    descriptor.spriteName = NSStringFromClass([BarrageWalkTextSprite class]);
+    descriptor.params[@"text"] = self.danMuText[arc4random_uniform((uint32_t)self.danMuText.count)];
+    descriptor.params[@"textColor"] = Color(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256));
+    descriptor.params[@"speed"] = @(100 * (double)random()/RAND_MAX + 50);
+    descriptor.params[@"direction"] = @(direction);
+    descriptor.params[@"clickAction"] = ^{
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:@"弹幕被点击" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+        [alertView show];
+    };
+    
+    return descriptor;
 
+}
+
+- (NSArray *)danMuText {
+    return [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"danmu.plist" ofType:nil]];
+}
 
 #pragma mark -set get
 - (UIImageView *)placeHolderView {
@@ -244,6 +268,8 @@ BOOL _isSelected = NO;
     return self;
 }
 
+
+
 - (void)setLive:(ZRSLiveItem *)live {
     _live = live;
     self.anchorView.live = live;
@@ -258,6 +284,53 @@ BOOL _isSelected = NO;
     } else {
         self.catEarView.hidden = YES;
     }
+}
+
+- (ZRSCatEarView *)catEarView {
+    if (!_catEarView) {
+        ZRSCatEarView *catEarView = [ZRSCatEarView catEarView];
+        [self.moviePlayer.view addSubview:catEarView];
+        [catEarView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickCatEar)]];
+        [catEarView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(@-30);
+            make.centerY.equalTo(self.moviePlayer.view);
+            make.width.height.equalTo(@98);
+        }];
+        _catEarView = catEarView;
+    }
+    return _catEarView;
+}
+
+- (UIImageView *)otherView {
+    if (!_otherView) {
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"private_icon_70x70"]];
+        imageView.userInteractionEnabled = YES;
+        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOther)]];
+        [self.moviePlayer.view addSubview:imageView];
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.catEarView);
+            make.bottom.equalTo(self.catEarView.mas_top).offset(-40);
+        }];
+        _otherView = imageView;
+    }
+    return _otherView;
+}
+
+- (ZRSLiveEndView *)endView {
+    if (!_endView) {
+        ZRSLiveEndView *endView = [ZRSLiveEndView liveEndView];
+        [self.contentView addSubview:endView];
+        [endView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(@0);
+        }];
+        [endView setQuitBlock:^{
+            [self quit];
+        }];
+        [endView setLookOtherBlock:^{
+            [self clickCatEar];
+        }];
+    }
+    return _endView;
 }
 
 #pragma mark - private method 
@@ -312,5 +385,7 @@ BOOL _isSelected = NO;
     [self.emitterLayer setHidden:NO];
     
 }
+
+
 
 @end

@@ -14,6 +14,7 @@
 #import "ZRSLiveItem.h"
 #import "ZRSWebViewController.h"
 #import "ZRSRefreshGifHeader.h"
+#import "ZRSLiveCollectionViewController.h"
 
 @interface ZRSHotViewController ()
 /** 当前页 */
@@ -156,6 +157,9 @@ static NSString *ZReuseIdentifer = @"ZRSHomeADCell";
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    ZRSLiveCollectionViewController *vc = [[ZRSLiveCollectionViewController alloc] init];
+    vc.lives = self.lives;
+    vc.currentIndex = indexPath.row - 1;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 @end

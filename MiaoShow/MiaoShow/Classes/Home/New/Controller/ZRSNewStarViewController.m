@@ -12,6 +12,7 @@
 #import "ZRSNewFlowLayout.h"
 #import "ZRSRefreshGifHeader.h"
 #import "ZRSLiveItem.h"
+#import "ZRSLiveCollectionViewController.h"
 
 @interface ZRSNewStarViewController ()
 
@@ -144,7 +145,24 @@ static NSString * const reuseIdentifier = @"ZRSAnchorCollectionViewCell";
 
 #pragma mark <UICollectionViewDelegate>
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ZRSLiveCollectionViewController *vc = [[ZRSLiveCollectionViewController alloc] init];
     
+    NSMutableArray *array = [NSMutableArray array];
+    for (ZRSUserItem *user in self.anchors) {
+        ZRSLiveItem *live = [[ZRSLiveItem alloc] init];
+        live.bigpic = user.photo;
+        live.myname = user.nickname;
+        live.smallpic = user.photo;
+        live.gps = user.position;
+        live.useridx = user.useridx;
+        live.allnum = arc4random_uniform(2000);
+        live.flv = user.flv;
+        [array addObject:live];
+    }
+    
+    vc.lives = array;
+    vc.currentIndex = indexPath.item;
+    [self presentViewController:vc animated:YES completion:nil];
     
 }
 
