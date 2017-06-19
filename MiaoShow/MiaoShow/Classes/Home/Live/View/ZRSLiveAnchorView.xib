@@ -9,19 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZRSLiveAnchorView">
-            <connections>
-                <outlet property="anchorView" destination="Rsi-IX-7wS" id="cON-aS-wqd"/>
-                <outlet property="careBtn" destination="3yZ-4I-0Xq" id="dCd-Ra-eTk"/>
-                <outlet property="giftView" destination="3bW-Ve-ad5" id="gjl-h6-kdY"/>
-                <outlet property="headImageView" destination="irA-da-SUn" id="AaT-OZ-hfL"/>
-                <outlet property="nameLabel" destination="Ucz-nL-dqp" id="If2-QN-94k"/>
-                <outlet property="peopleLabel" destination="oea-Ld-4Fe" id="q4S-l8-x0d"/>
-                <outlet property="peoplesScrollView" destination="xgC-3n-ZFN" id="7u6-kj-USb"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZRSLiveAnchorView">
             <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -93,7 +83,7 @@
                     <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="猫粮:1993045  娃娃124593" image="cat_food_18x12"/>
                     <connections>
-                        <action selector="Device:" destination="-1" eventType="touchUpInside" id="xv8-ei-OOt"/>
+                        <action selector="Device:" destination="iN0-l3-epB" eventType="touchUpInside" id="07B-2t-9nd"/>
                     </connections>
                 </button>
             </subviews>
@@ -109,6 +99,15 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="anchorView" destination="Rsi-IX-7wS" id="nLL-oY-ibv"/>
+                <outlet property="careBtn" destination="3yZ-4I-0Xq" id="3Cu-sq-Nhu"/>
+                <outlet property="giftView" destination="3bW-Ve-ad5" id="dRE-Vn-bXw"/>
+                <outlet property="headImageView" destination="irA-da-SUn" id="XWp-Kq-r8C"/>
+                <outlet property="nameLabel" destination="Ucz-nL-dqp" id="pNq-fq-FV9"/>
+                <outlet property="peopleLabel" destination="oea-Ld-4Fe" id="Fd6-Mc-g9w"/>
+                <outlet property="peoplesScrollView" destination="xgC-3n-ZFN" id="tN8-7p-K9P"/>
+            </connections>
             <point key="canvasLocation" x="237" y="-74"/>
         </view>
     </objects>

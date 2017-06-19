@@ -65,9 +65,7 @@
     }
 }
 
-- (void)exeute {
-    
-}
+
 - (void)clickOther
 {
     NSLog(@"相关的主播");
@@ -167,6 +165,7 @@ long _index = 0;
         [self.contentView addSubview:imageView];
         _placeHolderView = imageView;
         [self.parentVc showGifLoading:nil inView:self.placeHolderView];
+        [_placeHolderView layoutIfNeeded];
     }
     return _placeHolderView;
 }
@@ -174,8 +173,8 @@ long _index = 0;
 BOOL _isSelected = NO;
 - (ZRSBottomToolView *)toolView {
     if (!_toolView) {
-        ZRSBottomToolView *tooView = [[ZRSBottomToolView alloc] init];
-        [tooView setClickToolBlock:^(LiveToolType type){
+        ZRSBottomToolView *toolView = [[ZRSBottomToolView alloc] init];
+        [toolView setClickToolBlock:^(LiveToolType type){
             switch (type) {
                 case LiveToolTypePublicTalk:
                     _isSelected = !_isSelected;
@@ -201,7 +200,16 @@ BOOL _isSelected = NO;
                     break;
             }
         }];
+        [self.contentView insertSubview:toolView aboveSubview:self.placeHolderView];
+        [toolView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(@0);
+            make.bottom.equalTo(@-10);
+            make.height.equalTo(@40);
+        }];
+        _toolView = toolView;
     }
+    
+
     return _toolView;
 }
 
@@ -286,6 +294,25 @@ BOOL _isSelected = NO;
     }
 }
 
+- (ZRSLiveAnchorView *)anchorView {
+    if (!_anchorView) {
+        ZRSLiveAnchorView *anchorView = [ZRSLiveAnchorView liveAnchorView];
+        [anchorView setClickDeviceShow:^(BOOL isSelected){
+            if (_moviePlayer) {
+                _moviePlayer.shouldShowHudView = !isSelected;
+            }
+        }];
+        [self.contentView insertSubview:anchorView aboveSubview:self.placeHolderView];
+        [anchorView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(@0);
+            make.height.equalTo(@120);
+            make.top.equalTo(@0);
+        }];
+        _anchorView = anchorView;
+    }
+    return _anchorView;
+}
+
 - (ZRSCatEarView *)catEarView {
     if (!_catEarView) {
         ZRSCatEarView *catEarView = [ZRSCatEarView catEarView];
@@ -354,34 +381,40 @@ BOOL _isSelected = NO;
         _emitterLayer = nil;
     }
     
-    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:placeHolderUrl] options:SDWebImageDownloaderUseNSURLCache progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-        [self.parentVc showGifLoading:nil inView:self.placeHolderView];
-        self.placeHolderView.image = [UIImage blurImage:image blur:0.8];
-    }];
+//    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:placeHolderUrl] options:SDWebImageDownloaderUseNSURLCache progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+//        [self.parentVc showGifLoading:nil inView:self.placeHolderView];
+//        self.placeHolderView.image = [UIImage blurImage:image blur:0.8];
+//    }];
     
     IJKFFOptions *options = [IJKFFOptions optionsByDefault];
-    [options setPlayerOptionIntValue:1 forKey:@"videotoolbox"];
+    [options setPlayerOptionIntValue:1  forKey:@"videotoolbox"];
     
-    //帧速率（fps） (可以改，确认非标准帧会导致音画不同步， 所以只能设定为15或者29。97)
+    // 帧速率(fps) （可以改，确认非标准桢率会导致音画不同步，所以只能设定为15或者29.97）
     [options setPlayerOptionIntValue:29.97 forKey:@"r"];
-    //-vol-设置音量大小， 256为标准音量。（要设置成两倍音量时则输入512）；
+    // -vol——设置音量大小，256为标准音量。（要设置成两倍音量时则输入512，依此类推
     [options setPlayerOptionIntValue:512 forKey:@"vol"];
     IJKFFMoviePlayerController *moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:flv withOptions:options];
     moviePlayer.view.frame = self.contentView.bounds;
-    //填充fill
+    // 填充fill
     moviePlayer.scalingMode = IJKMPMovieScalingModeAspectFill;
-    //设置自动播放（必须设置为NO， 防止自动播放， 才能更好的控制直播的状态）
+    // 设置自动播放(必须设置为NO, 防止自动播放, 才能更好的控制直播的状态)
     moviePlayer.shouldAutoplay = NO;
-    //默认不显示
+    // 默认不显示
     moviePlayer.shouldShowHudView = NO;
+    
     [self.contentView insertSubview:moviePlayer.view atIndex:0];
+    
     [moviePlayer prepareToPlay];
+    
     self.moviePlayer = moviePlayer;
-    //设置监听
+    
+    // 设置监听
     [self initObserver];
-    //显示工会其他主播和类似主播
+    
+    // 显示工会其他主播和类似主播
     [moviePlayer.view bringSubviewToFront:self.otherView];
-    //开始来访动画
+    
+    // 开始来访动画
     [self.emitterLayer setHidden:NO];
     
 }
